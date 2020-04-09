@@ -251,11 +251,11 @@ public class Imagen {
 
 
 	/**
-	 * Este metodo agrega los numeros que se encuentran en la matriz que entra por
-	 * paramtero a una cola.
+	 * Este método agrega los numeros que se encuentran en la matríz que entra por
+	   parámetro a una cola.
 	 * 
 	 * @param matriz
-	 * @return numeros - Una cola de tipo Integer con todos los numeros de la matriz
+	 * @return Queue<Integer> numeros - Una cola de tipo Integer con todos los números de la matríz
 	 */
 
 	public Queue<Integer> colaNumerosInicial(int[][] matriz) {
@@ -272,14 +272,14 @@ public class Imagen {
 		return numeros;
 	}
 
+	
 	/**
-	 * Este metodo convierte la informacion comprimida en RLE a informacion binaria
+	 * Este método convierte la informacion comprimida en RLE a informacion binaria
 	 * 
-	 * @param matrizRLE - Una lista de Strings la cual contiene la informacion
-	 *                  comprimida en RLE
-	 * @return filaBinarizada - Una lista de Strings con la informacion convertida a
-	 *         binario
+	 * @param matrizRLE - Una lista de Strings la cual contiene la informacion comprimida usando el algoritmo RLE
+	 * @return ArrayList<String> filaBinarizada - Una lista de Strings con la informacion convertida a binario
 	 */
+	
 	public ArrayList<String> binarizarMatrizRLE(ArrayList<String> matrizRLE) {
 		String cadenaBinarizada = "";
 		String cadena = "";
@@ -331,10 +331,10 @@ public class Imagen {
 	}
 
 	/**
-	 * Este metodo convierte un numero a binario
+	 * Este método convierte un número de deciaml a binario
 	 * 
-	 * @param numeros - una cade de String con el numro a binarizar
-	 * @return cadenaNumeroBin - Una cadena de String con el numero binarizado
+	 * @param numeros - una cadena de tipo String con el número decimal a binarizar
+	 * @return String : Una cadena de tipo String con el número binarizado
 	 */
 
 	public String decimalToBinary(String numeros) {
@@ -362,9 +362,9 @@ public class Imagen {
 	}
 
 	/**
-	 * Este metodo convirte el caracter "-" en binario
+	 * Este método convirte el caracter "-" a binario
 	 * 
-	 * @return binario - una cadena de String con el valor binario del caracter
+	 * @return Sring  :Una cadena de String con el valor binario del caracter
 	 */
 	public String guionBinarizado() {
 		String guion = "-";
@@ -380,13 +380,10 @@ public class Imagen {
 	}
 
 	/**
-	 * Este metodo le agrega los numeros faltantes al numero binarizado del caracter
-	 * "-" que deben ser 8 en base 2.
+	 * Este método le agrega los números faltantes al número binarizado del caracter "-" que deben ser 8 en base 2.
 	 * 
-	 * @param binario - Una cadena de String con los numeros en binario que
-	 *                corresponden al caracter "-"-
-	 * @return Una cadena de String que contiene la informacion que entro por
-	 *         parametro y se le concateno los ceros faltantes.
+	 * @param binario - Una cadena de tipo String con los números en binario que corresponden al caracter "-"-
+	 * @return String  :Una cadena de String que contiene la información que entró cómo parámetro y se le concatenó los ceros faltantes.
 	 */
 	public static String concatenarCerosFaltantes(String binario) {
 
@@ -399,8 +396,9 @@ public class Imagen {
 		return ceros + binario;
 	}
 
+	
 	/**
-	 * 
+	 * Retorna una matríz que contiene sólo los valores de color rojo del formao RGB de la imágen.
 	 * @return
 	 */
 	public int[][] getMatrizRed() {
@@ -411,6 +409,10 @@ public class Imagen {
 		this.matrizRed = matrizRed;
 	}
 
+	/**
+	 * Retorna una matríz que contiene sólo los valores de color verde del formao RGB de la imágen.
+	 * @return
+	 */
 	public int[][] getMatrizGreen() {
 		return matrizGreen;
 	}
@@ -419,6 +421,10 @@ public class Imagen {
 		this.matrizGreen = matrizGreen;
 	}
 
+	/**
+	 * Retorna una matríz que contiene sólo los valores de color azul del formao RGB de la imágen.
+	 * @return
+	 */
 	public int[][] getMatrizBlue() {
 		return matrizBlue;
 	}
@@ -428,13 +434,12 @@ public class Imagen {
 	}
 
 	/**
-	 * Este metodo verifica si la cadena que le entra por parametro con numeros
-	 * binarios es un numero o corresponde en binario al caracter "-".
+	 * Este método verifica si la cadena que le entra por parametro con números
+	 * binarios: es un número o corresponde en binario al caracter "-".
 	 * 
 	 * @param cadena - Un cadena de String el cual contiene el valor binario de un
-	 *               numero o del caracter "-".
-	 * @return encontro - un valor booleano el cual es true si la cadena de
-	 *         parametro es un numero, false en caso contrario.
+	 *               número o del caracter "-".
+	 * @return Boolean  :un valor booleano el cual es true si la cadena de parámetro es un numero, false en caso contrario.
 	 */
 	public boolean esNumero(String cadena) {
 		char indicadorFila = '/';
@@ -452,37 +457,12 @@ public class Imagen {
 		return encontro;
 	}
 
-	public void crearCodificacionArchivoTxt(String cadena) {
 
-		File file = new File("./huffmanEncoder.txt");
-		FileWriter writer = null;
-
-		try {
-			writer = new FileWriter(file);
-
-			writer.write(cadena + "\n");
-
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		} finally {
-
-			if (writer != null) {
-
-				try {
-					writer.close();
-				} catch (IOException e) {
-
-					e.printStackTrace();
-				}
-			}
-
-		}
-
-	}
 
 	/**
 	 * Método que realiza el promedio de un Color RGB
+	 * @param Una variable tipo Color 
+	 * @return int : El promedio de los tres valores RGB que contiene la varable tipo Color.
 	 */
 
 	public int promedioColorRGB(Color rgb) {
@@ -508,12 +488,10 @@ public class Imagen {
 	}
 
 	/**
-	 * Este metodo decodifica la informacion que se encuentra binarizada y lo
-	 * convierte al formato incial , RLE.
+	 * Este método decodifica la información que se encuentra binarizada y lo convierte al formato incial , RLE.
 	 * 
 	 * @param filas - Una lista de Strings la cual se encuentra en formato binario
-	 * @return filasDecodificadas - Una lista de Strings con numeros en formato
-	 *         decimal y caracteres "-".
+	 * @return ArrayList<String> filasDecodificadas - Una lista de tipo String con números en formato decimal y caracteres "-".
 	 */
 	public ArrayList<String> decodificarRLEBinarizado(ArrayList<String> filas) {
 		int base2 = 8;
@@ -592,11 +570,11 @@ public class Imagen {
 	}
 
 	/**
-	 * Este metodo verifica si la cadena que entra por parametro corresponde al
+	 * Este método verifica si la cadena que entra por parametro corresponde al
 	 * valor en binario del caracter "-"
 	 * 
-	 * @param cadena - una cdena de String con informacion en binario
-	 * @return un valor booleano, true si la cadena que entra por parametro
+	 * @param cadena - una cadena de tipo String con información en binario
+	 * @return boolean  : true si la cadena que entra por parámetro
 	 *         corresponde al valor binario del "-", false en caso contrario.
 	 */
 	public boolean esGuion(String cadena) {
@@ -610,10 +588,10 @@ public class Imagen {
 	}
 
 	/**
-	 * Este metodo convierte la los numeros que esten en binario a formato decimal.
+	 * Este método convierte los números que esten en binario a formato decimal.
 	 * 
-	 * @param numeroBinario - Una cadena de String con numeros binarios
-	 * @return resultado - un numero.
+	 * @param numeroBinario - Una cadena de String con números binarios
+	 * @return int resultado - un número decimal.
 	 */
 	public int binarioADecimal(String numeroBinario) {
 		int longitud = numeroBinario.length();// Numero de digitos que tiene nuestro binario
@@ -629,8 +607,7 @@ public class Imagen {
 	}
 
 	/**
-	 * Este metodo descomprime la informaicon que se encuentra comprimida por el
-	 * algoritmo RLE.
+	 * Este metodo descomprime la información que se encuentra comprimida por el algoritmo RLE.
 	 * 
 	 * @param filasRLE - Una lista de String que contienene la informacion
 	 *                 comprimida
@@ -672,13 +649,12 @@ public class Imagen {
 	}
 
 	/**
-	 * Este metodo construye una matriz de 120 de alto x 120 de ancho. Este metodo
-	 * llena la matriz a partir de los numeros que se encuentran en la cola de tipo
-	 * Integer.
+	 * Este método construye una matríz de 120 de alto x 120 de ancho,
+	 * llena la matriz a partir de los numeros que se encuentran en la cola de tipo Integer.
 	 * 
-	 * @param colaNumeros - Una cola de tipo Integer
-	 * @return matrizRGB - Una matriz con todos los numeros que se encontraban en la
-	 *         cola que entro por parametro
+	 * @param Queue<Integer>  colaNumeros - Una cola de tipo Integer
+	 * @return int[][]  matrizRGB - Una matríz con todos los números que se encontraban en la
+	 *         cola que entró por parámetro
 	 */
 	public int[][] matrizReconstruidaRLE(Queue<Integer> colaNumeros) {
 
@@ -699,10 +675,10 @@ public class Imagen {
 	}
 
 	/**
-	 * Este metodo llena una cola con la informacion que le entra por parametro
+	 * Este método llena una cola con la información que le entra por parámetro
 	 * 
 	 * @param matriz una matriz de tipo int
-	 * @return colaNumeros - una cola llena de la informacion que se encontraba
+	 * @return colaNumeros - una cola llena de la información que se encontraba
 	 */
 
 	public Queue<Integer> numerosMatriz(int[][] matriz) {
