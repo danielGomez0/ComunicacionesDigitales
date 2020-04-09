@@ -37,8 +37,8 @@ public class Imagen {
 	private ImageIcon icon;
 
 	/**
-	 * Contructor de la clase Imagen Inicializa las matrices a utilizar Carga la
-	 * imágen
+	 * Contructor de la clase Imagen Inicializa las matrices a utilizar.
+	 *  Carga la imagen que se utilizará.
 	 * 
 	 * @param archivo
 	 * 
@@ -123,25 +123,6 @@ public class Imagen {
 		}
 	}
 
-	public BufferedImage redimensionar(String archivo, double porcentaje) {
-
-		BufferedImage bf = null;
-		try {
-			bf = ImageIO.read(new File(archivo));
-		} catch (IOException ex) {
-			Logger.getLogger(Imagen.class.getName()).log(Level.SEVERE, null, ex);
-		}
-		int ancho = bf.getWidth();
-		int alto = bf.getHeight();
-		int escalaAncho = (int) (porcentaje * ancho);
-		int escalaAlto = (int) (porcentaje * alto);
-		BufferedImage bufim = new BufferedImage(escalaAncho, escalaAlto, bf.getType());
-		Graphics2D g = bufim.createGraphics();
-		g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-		g.drawImage(bf, 0, 0, escalaAncho, escalaAlto, 0, 0, ancho, alto, null);
-		g.dispose();
-		return bufim;
-	}
 
 	/**
 	 * Binariza la imagen (a blanco y negro) utilizando un umbral a elección.
