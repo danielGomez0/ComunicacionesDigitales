@@ -286,7 +286,14 @@ public class Imagen {
 		char guion = '-';
 		String numerosActuales = "";
 		ArrayList<String> filaBinarizada = new ArrayList<String>();
-
+		File file = new File("./EncoderBinario.txt");
+		FileWriter writer = null;
+		  try {
+				writer = new FileWriter(file);
+			} catch (IOException e1) {
+				System.out.println("Se encontró un error en la escritura de la imágen :/");
+				e1.printStackTrace();
+			}
 		for (int i = 0; i < matrizRLE.size(); i++) {
 
 			cadena = matrizRLE.get(i);
@@ -322,10 +329,30 @@ public class Imagen {
 				}
 			}
 			filaBinarizada.add(cadenaBinarizada);
+			
+			  try {
+
+						writer.write(cadenaBinarizada+"\n");
+						
+					
+				} catch (IOException e) {
+
+					e.printStackTrace();
+				}
+			  
 			cadenaBinarizada = "";
 
 		}
+		 if (writer != null) {
+				
+				try {
+					writer.close();
+				} catch (IOException e) {
 
+					e.printStackTrace();
+				}
+			}
+		 
 		return filaBinarizada;
 
 	}
@@ -501,6 +528,14 @@ public class Imagen {
 		String valoresActuales = "";
 		String valorAnterior = "";
 		int contadorBina = 0;
+		File file = new File("./decodificarRLEBinarizado.txt");
+		FileWriter writer = null;
+		  try {
+				writer = new FileWriter(file);
+			} catch (IOException e1) {
+				System.out.println("Se produjo un error al escribir el archivo :/");
+				e1.printStackTrace();
+			}
 		ArrayList<String> filasDecoficadas = new ArrayList<String>();
 		for (int i = 0; i < filas.size(); i++) {
 
@@ -562,8 +597,26 @@ public class Imagen {
 			}
 
 			filasDecoficadas.add(cadenaDecodificada);
+			  try {
+
+					writer.write(cadenaDecodificada+"\n");
+					
+				
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
 			cadenaDecodificada = "";
 
+		}
+		if (writer != null) {
+			
+			try {
+				writer.close();
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
 		}
 		return filasDecoficadas;
 
